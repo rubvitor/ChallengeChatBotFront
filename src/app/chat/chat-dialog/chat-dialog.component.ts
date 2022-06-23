@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService, Message } from '../chat.service';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/scan';
-
+import { AuthenticationService } from '../../_services/authentication.service';
 
 @Component({
   selector: 'chat-dialog',
@@ -11,20 +9,44 @@ import 'rxjs/add/operator/scan';
 })
 export class ChatDialogComponent implements OnInit {
 
-  messages: Observable<Message[]>;
+  messages: Message[];
   formValue: string;
+  user: string;
 
-  constructor(public chat: ChatService) { }
+  constructor(public chat: ChatService,
+              private authenticationService: AuthenticationService) {
+      this.user = authenticationService.currentUserValue.userName;
+  }
 
   ngOnInit() {
-    // appends to array after each new message is added to feedSource
-    this.messages = this.chat.conversation.asObservable()
-        .scan((acc, val) => acc.concat(val) );
+    this.messages = [];
+    this.chat.messages.subscribe(msg => {
+      this.messages.push(msg);
+    });
+
+    this.chat.getMessages().subscribe(messages => {
+      messages.forEach(msg => {
+        this.messages.push(msg);
+      });
+    });
   }
 
   sendMessage() {
-    this.chat.converse(this.formValue);
+    this.messages.push({
+      message: this.formValue,
+      actor: this.user,
+      username: this.user
+    })
+    this.chat.messages.next({ message: this.formValue, username: this.user });
     this.formValue = '';
   }
 
+  top() {
+    document.getElementById('top').scrollIntoView();    
+  }
+
+  bottom() {
+    document.getElementById('bottom').scrollIntoView();
+    window.setTimeout( function () { this.top(); }, 2000 );
+  }
 }

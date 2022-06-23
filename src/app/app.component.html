@@ -1,7 +1,14 @@
-<div class="row">
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+</nav>
+<div style="margin-left: 10px">
         <div class="column"></div>
         <div class="column column-50">
-            <chat-dialog></chat-dialog>
+          <alert></alert>
+          <router-outlet></router-outlet>
         </div>
         <div class="column"></div>
       </div>

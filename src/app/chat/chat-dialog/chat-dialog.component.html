@@ -1,21 +1,21 @@
-<h1>Angular Bot</h1>
+<h1>Bot</h1>
+<h4>Example: /stock=aapl.us</h4>
 
+<br><br>
 
+<ng-container *ngFor="let message of messages">
 
-<ng-container *ngFor="let message of messages | async">
-
-  <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
-                                    'to':   message.sentBy === 'user' }">
-    {{ message.content }}
+  <div class="message" [ngClass]="{ 'from': message.actor !== user,
+                                    'to':   message.actor === user }">
+    <b>{{message.actor}}:</b> {{ message.message }}
   </div>
 
 </ng-container>
 
 
-<label for="nameField">Your Message</label>
-
+<br><br>
+<label for="nameField">Text Here</label>
 
 <input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text"><br>
-
+<br>
 <button (click)="sendMessage()">Send</button>
-
