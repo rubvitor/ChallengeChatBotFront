@@ -1,27 +1,12 @@
-[![Slack](https://firebasestorage.googleapis.com/v0/b/firestarter-96e46.appspot.com/o/assets%2Fslack-badge.svg?alt=media&token=3e68acef-3e00-4925-9710-e11cee5923e4)](https://join.slack.com/angularfirebase/shared_invite/MjA2NTgxMTI0MTk2LTE0OTg4NTQ4MDAtMjhhZDIzMjc0Mg)
+# ChatBot
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+To run this project is necessary first run the backend project. Be aware about the configurations into the files environment
 
-# AngularFirebase - Angular Chatbot with Dialogflow 
+Users and passwords are into the project backend (read the informations in readme of backend)
 
-Watch the [angular chatbot screencast](https://angularfirebase.com/lessons/chatbot-in-angular-with-dialogflow-api-ai/)
+Please install Docker in your machine. Some commands and link bellow:
 
-![](https://firebasestorage.googleapis.com/v0/b/firestarter-96e46.appspot.com/o/assets%2Fdialogflow-angular-demo.gif?alt=media&token=9fbecf3f-1174-4e84-9c73-6ddfe2d55807)
+docker pull rabbitmq:3-management
+docker run -d -p 15672:15672 -p 5672:5672 --name rabbit-test-for-medium rabbitmq:3-management
 
-## Usage
-
-First, create an agent on DialogFlow. 
-
-- git clone
-- create `/src/environments/environment.ts` with your API client token
-- npm install
-- ng serve
-
-
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
-
-## Changes
-Increased Functinality of the ChatBot. Now it can answer more number of questions of the user than before.
-Language Selection added with suitable fonts
-Can help the user prvoide their solutions by directing them to teh desired web links which might or not help the user solve their query.  
+Source: https://code.imaginesoftware.it/rabbitmq-with-docker-on-windows-in-30-minutes-172e88bb0808
