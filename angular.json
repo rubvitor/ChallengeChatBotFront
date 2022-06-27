@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Ang7": {
+    "chat-bot-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Ang7",
+            "outputPath": "dist/chat-bot-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -71,18 +71,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Ang7:build"
+            "browserTarget": "chat-bot-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Ang7:build:production"
+              "browserTarget": "chat-bot-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Ang7:build"
+            "browserTarget": "chat-bot-app:build"
           }
         },
         "test": {
@@ -116,7 +116,7 @@
         }
       }
     },
-    "Ang7-e2e": {
+    "chat-bot-app-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -125,11 +125,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Ang7:serve"
+            "devServerTarget": "chat-bot-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Ang7:serve:production"
+              "devServerTarget": "chat-bot-app:serve:production"
             }
           }
         },
@@ -145,7 +145,7 @@
       }
     }
   },
-  "defaultProject": "Ang7",
+  "defaultProject": "chat-bot-app",
   "cli": {
     "analytics": "3c069f74-c67b-4e41-82e4-6acd80b8179c"
   }

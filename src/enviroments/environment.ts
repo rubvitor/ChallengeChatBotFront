@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://localhost:7182',
-    webSocket: 'wss://localhost:7182/websocket/'
+    apiUrl: 'http://localhost',
+    webSocket: 'ws://localhost/websocket/'//Verify the protocol of your backend. If this one is http you should change ws to wss. Verify which Port are you running as well
 };
